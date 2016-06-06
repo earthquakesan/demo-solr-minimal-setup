@@ -1,0 +1,21 @@
+version: '2'
+services:
+  solr:
+    image: earthquakesan/solr:1.0.0-solr6.0.1
+    hostname: solr
+    environment:
+      - ZOOKEEPER_HOST=zookeeper:2181
+    networks:
+      - solr
+    ports:
+      - "8983:8983"
+  zookeeper:
+    image: mesoscloud/zookeeper:3.4.8-centos-7
+    hostname: zookeeper
+    networks:
+      - solr
+    environment:
+      - MYID=1
+
+networks:
+  solr:
