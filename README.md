@@ -1,0 +1,1 @@
+# demo-solr-minimal-setup
